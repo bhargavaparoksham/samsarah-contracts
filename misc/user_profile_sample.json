@@ -1,0 +1,30 @@
+{
+  "user_id": 1,
+  "user_name": "Eagle",
+  "profile_picture": "ipfs://QmWFKcQx5o7g9DvZvucbKSeJqmKDa7ihWpdj1KGNu8dcK5/profile.jpg",
+  "description": "I'm an eagle.",
+  "social": [
+    {
+      "network": "twitter",
+      "link": "twitter.com"
+    },
+    {
+      "netowrk": "reddit",
+      "link": "reddit.com"
+    }
+  ],
+  "interests": [
+    {
+      "interest": "Crypto"
+    },
+    {
+      "interest": "Finance"
+    }
+
+  ],
+
+  "daos": [],
+  "followers": [],
+  "following": []
+
+}
