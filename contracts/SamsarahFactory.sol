@@ -1,0 +1,21 @@
+//SPDX-License-Identifier: Unlicense
+pragma solidity ^0.8.0;
+
+import "hardhat/console.sol";
+import "./SamsarahAccount";
+
+
+contract SamsarahFactory is Ownable {
+
+	constructor() {
+
+	}
+
+	mapping (address => address) public accounts;
+
+	function createAccount() {
+		
+	}
+
+
+}

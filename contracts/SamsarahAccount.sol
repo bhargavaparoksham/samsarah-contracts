@@ -4,14 +4,14 @@ pragma solidity ^0.8.0;
 import "hardhat/console.sol";
 
 
-contract Samsarah is ERC721, Ownable {
+contract SamsarahAccount is ERC721, Ownable {
 
 	constructor() ERC721 ("Samsarah","SSH") {
 
 	}
 
-	function createNewProfile() {
-		//NFT contract factory where user will set a base URI & by default 0 will be where the main profile exists.
+	function editProfile() {
+		// Function using which user will set a base URI & by default 0 will be where the main profile exists.
 		// 1 to n will be where individual sub components of the profile exists 
 		// These other sub components will be minted only as per user requirement
 		// eg; Interests so that it can be used in other apps or for composobality
