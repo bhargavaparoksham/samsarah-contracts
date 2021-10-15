@@ -6,11 +6,16 @@ import "hardhat/console.sol";
 
 contract SamsarahAccount is ERC721, Ownable {
 
-	constructor() ERC721 ("Samsarah","SSH") {
+	constructor() ERC721 ("","") {
+		// ALL NFT tokens are self referential i.e are assigned to self address by default
 
 	}
 
-	function editProfile() {
+	address[] public following;
+	address[] public followers;
+	mapping (address => uint256) public trustScore;
+
+	function editProfileURI() {
 		// Function using which user will set a base URI & by default 0 will be where the main profile exists.
 		// 1 to n will be where individual sub components of the profile exists 
 		// These other sub components will be minted only as per user requirement
@@ -19,11 +24,14 @@ contract SamsarahAccount is ERC721, Ownable {
 		// Profiles will be pseudonymous or real based on user preference which will be  sub component in the main profile
 	}
 
-	function follow() {
+
+
+
+	function follow(address _account, uint256 _trustScore) public {
 		// Each profile can follow other profiles & when two profiles follow each other it becomes a connection.
 	}
 
-	function trustScore() {
+	function updateTrustScore() internal {
 		// Each profile can set a public trustScore for other profiles they follow
 		// Trust Score 0 => Stranger
 		// Trust Score 1 => A person who you have interacted / worked with atleast once.
