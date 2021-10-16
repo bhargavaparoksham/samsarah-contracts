@@ -9,8 +9,8 @@ contract SamsarahConnectionManager {
 
 
     // followee address => follower address => isFollower
-	mapping (address => mapping(address => bool)) public isFollower;
-	mapping (address => mapping(address => uint)) public trustScore;
+    mapping (address => mapping(address => bool)) public isFollower;
+    mapping (address => mapping(address => uint)) public trustScore;
     mapping (address => uint256) public follwerCount;
     mapping (address => uint256) public followingCount;    
     // followers: Has an array of all follwers. If a user unfollows even then the follwer address remains in the array. 
@@ -18,11 +18,11 @@ contract SamsarahConnectionManager {
     mapping (address => address[]) public following;
     // mapping (address => uint256[]) public followerStatus;
 
-	constructor() {}
+    constructor() {}
 
-	
-	function follow(address _account, uint256 _trustScore) public {
-		// Each profile can follow other profiles & when two profiles follow each other it becomes a connection.
+    
+    function follow(address _account, uint256 _trustScore) public {
+        // Each profile can follow other profiles & when two profiles follow each other it becomes a connection.
         // Require the address to have an account to follow others
         require(accountStatus[msg.sender] == 1, "Samsarah: Please create an account first to follow others");
         require(_trustScore < 5, "Samsarah: Trust score can not be higher than 4");
@@ -34,15 +34,15 @@ contract SamsarahConnectionManager {
         following[msg.sender].push(_account);
         followers[_account].push(msg.sender);
 
-	}
+    }
 
-	function updateTrustScore(address _account, uint256 _trustScore) public {
-		// Each profile can set a public trustScore for other profiles they follow
+    function updateTrustScore(address _account, uint256 _trustScore) public {
+        // Each profile can set a public trustScore for other profiles they follow
         require(isFollower[_account][msg.sender] == 1, "Samsarah: Account needs to be followed first to update the trust score");
         require(_trustScore < 5, "Samsarah: Trust score can not be higher than 4");
         trustScore[_accountunt][msg.sender] = _trustScore;        
 
-	}
+    }
 
     function unFollow(address _account) public {
         require(isFollower[_account][msg.sender] == 1, "Samsarah: Account is not followed");

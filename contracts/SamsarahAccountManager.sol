@@ -8,23 +8,23 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract SamsarahAccountManager is ERC721URIStorage, Ownable {
 
 
-	// Account creation price
-	uint256 public accountCreationPrice;
-	// Total number of accounts created till date
-	uint256 public accountsCreated;
-	// Mapping address to account status
+    // Account creation price
+    uint256 public accountCreationPrice;
+    // Total number of accounts created till date
+    uint256 public accountsCreated;
+    // Mapping address to account status
     mapping(address => bool) public accountStatus;
 
-	constructor(
+    constructor(
         uint256 _accountCreationPrice
-		) ERC721 ("SAMSARAH","SSH") {
-		maxAccounts = _maxAccounts;
-        accountCreationPrice = _maxAccounts; 	
-	}
-	
-	// Function using which user create a new account
+        ) ERC721 ("SAMSARAH","SSH") {
+        maxAccounts = _maxAccounts;
+        accountCreationPrice = _maxAccounts;    
+    }
+    
+    // Function using which user create a new account
 
-	function createNewAccount(string memory _profileURI) {
+    function createNewAccount(string memory _profileURI) {
         // Require sufficient Eth is provided to create account
         require(msg.value == accountCreationPrice, "Samsarah: Insufficient ETH provided to create new account");
         //Require each address to create only one account
@@ -38,25 +38,25 @@ contract SamsarahAccountManager is ERC721URIStorage, Ownable {
         // Increment accountsCreated
         accountsCreated = accountsCreated + 1;
       
-	}
+    }
 
 
-	// Function using which a user can change their account URI
+    // Function using which a user can change their account URI
 
-	function updateAccountURI(uint256 _accountId, string memory _profileURI) {
-		// Require msg.sender is account owner
-		require(msg.sender = ownerOf(_accountId), "Samsarah: Only an owner of the account can update the account URI");
-		// Set account URI
+    function updateAccountURI(uint256 _accountId, string memory _profileURI) {
+        // Require msg.sender is account owner
+        require(msg.sender = ownerOf(_accountId), "Samsarah: Only an owner of the account can update the account URI");
+        // Set account URI
         _setTokenURI(_accountId, _profileURI);
-	}
+    }
 
 
-	// Function using which governance can update accountCreationPrice
+    // Function using which governance can update accountCreationPrice
 
-	function setAccountCreationPrice(uint256 _accountCreationPrice) public onlyOwner {
-		// Set Account creation price;
-		accountCreationPrice = _accountCreationPrice;
-	}
+    function setAccountCreationPrice(uint256 _accountCreationPrice) public onlyOwner {
+        // Set Account creation price;
+        accountCreationPrice = _accountCreationPrice;
+    }
 
 }
 
