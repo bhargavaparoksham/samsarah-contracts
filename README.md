@@ -1,6 +1,6 @@
 # Samsarah is a financial social network on Ethereum.
 
-Using social layer you can,
+Using samsarah you can,
 1. Create a real or pseudonymous public profile.
 2. Checkout others profiles, their NFT Art Collection, the DAO's they are part of etc. 
 3. Follow others & assign a trust score to people.
